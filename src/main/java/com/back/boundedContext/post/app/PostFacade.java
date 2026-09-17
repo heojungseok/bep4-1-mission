@@ -24,6 +24,7 @@ public class PostFacade {
         return postRepository.count();
     }
 
+    @Transactional
     public RsData<Post> write(Member author, String title, String content) {
 
         return postWriteUseCase.write(author, title, content);

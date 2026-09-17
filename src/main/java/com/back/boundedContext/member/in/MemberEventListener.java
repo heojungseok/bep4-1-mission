@@ -18,6 +18,8 @@ public class MemberEventListener {
 
     private final MemberFacade memberFacade;
 
+    @TransactionalEventListener(phase = AFTER_COMMIT)
+    @Transactional(propagation = REQUIRES_NEW)
     public void handle(PostCreatedEvent event) {
         Member member = memberFacade.findById(event.getPost().getAuthorId()).get();
 

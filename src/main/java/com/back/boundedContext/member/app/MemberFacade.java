@@ -22,6 +22,7 @@ public class MemberFacade {
         return memberRepository.count();
     }
 
+    @Transactional
     public RsData<Member> join(String username, String password, String nickname) {
 
         return memberJoinUseCase.join(username, password, nickname);
