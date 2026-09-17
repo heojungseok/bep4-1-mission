@@ -1,7 +1,7 @@
 package com.back.shared.post.dto;
 
 
-import com.back.boundedContext.post.entity.Post;
+import com.back.boundedContext.post.domain.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
