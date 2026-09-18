@@ -1,4 +1,4 @@
-package com.back.global.jap.entity;
+package com.back.global.jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

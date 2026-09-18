@@ -1,6 +1,6 @@
 package com.back.shared.member.domain;
 
-import com.back.global.jap.entity.BaseEntity;
+import com.back.global.jpa.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
