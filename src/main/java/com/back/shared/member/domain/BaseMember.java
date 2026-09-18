@@ -1,0 +1,28 @@
+package com.back.shared.member.domain;
+
+import com.back.global.jap.entity.BaseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import static lombok.AccessLevel.PROTECTED;
+
+@MappedSuperclass
+@NoArgsConstructor
+@Getter
+@Setter(value = PROTECTED)
+public abstract class BaseMember extends BaseEntity {
+    @Column(unique = true)
+    private String username;
+    private String password;
+    private String nickname;
+    private int activityScore;
+
+    public BaseMember(String username, String password, String nickname) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+    }
+}
