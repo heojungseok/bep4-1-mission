@@ -18,7 +18,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Getter
 @EntityListeners(AuditingEntityListener.class)
-public class SourceMember extends BaseMember {
+public abstract class SourceMember extends BaseMember {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;
@@ -28,6 +28,6 @@ public class SourceMember extends BaseMember {
     private LocalDateTime modifyDate;
 
     public SourceMember(String username, String password, String nickname) {
-        super(username, password, nickname);
+        super(username, password, nickname, 0);
     }
 }
