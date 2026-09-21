@@ -8,7 +8,6 @@ import com.back.shared.cash.event.CashMemberCreatedEvent;
 import com.back.shared.member.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,7 +15,6 @@ public class CashSyncMemberUseCase {
     private final CashMemberRepository cashMemberRepository;
     private final EventPublisher eventPublisher;
 
-    @Transactional
     public CashMember syncMember(MemberDto member) {
         boolean isNew = !cashMemberRepository.existsById(member.getId());
 
