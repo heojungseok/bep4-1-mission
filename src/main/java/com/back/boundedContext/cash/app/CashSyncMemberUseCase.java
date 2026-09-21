@@ -18,14 +18,16 @@ public class CashSyncMemberUseCase {
     public CashMember syncMember(MemberDto member) {
         boolean isNew = !cashMemberRepository.existsById(member.getId());
 
-        CashMember _member = new CashMember(
-                member.getId(),
-                member.getCreateDate(),
-                member.getModifyDate(),
-                member.getUsername(),
-                "",
-                member.getNickname(),
-                member.getActivityScore()
+        CashMember _member = cashMemberRepository.save(
+                new CashMember(
+                        member.getId(),
+                        member.getCreateDate(),
+                        member.getModifyDate(),
+                        member.getUsername(),
+                        "",
+                        member.getNickname(),
+                        member.getActivityScore()
+                )
         );
 
         if (isNew) {
