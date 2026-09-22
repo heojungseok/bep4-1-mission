@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class MemberPolicy {
     private static int PASSWORD_CHANGE_DAYS;
 
-    @Value("${custom.global.member.password.changeDays}")
+    @Value("${custom.member.password.changeDays}")
     public void setPasswordChangeDays(int days) {
         PASSWORD_CHANGE_DAYS = days;
     }
