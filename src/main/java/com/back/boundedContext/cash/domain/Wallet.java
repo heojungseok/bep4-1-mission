@@ -2,14 +2,19 @@ package com.back.boundedContext.cash.domain;
 
 import com.back.global.jpa.entity.BaseEntity;
 import com.back.global.jpa.entity.BaseManualIdAndTime;
-import jakarta.persistence.*;
+import com.back.shared.cash.dto.WalletDto;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.*;
+import static jakarta.persistence.CascadeType.PERSIST;
+import static jakarta.persistence.CascadeType.REMOVE;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
@@ -28,6 +33,17 @@ public class Wallet extends BaseManualIdAndTime {
     public Wallet(CashMember holder) {
         super(holder.getId());
         this.holder = holder;
+    }
+
+    public WalletDto toDto() {
+        return new WalletDto(
+                getId(),
+                getCreateDate(),
+                getModifyDate(),
+                holder.getId(),
+                holder.getUsername(),
+                balance
+        );
     }
 
     public boolean hasBalance() {

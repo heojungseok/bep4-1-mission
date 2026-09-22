@@ -1,4 +1,4 @@
-package com.back.shared.market.in;
+package com.back.boundedContext.market.in;
 
 
 import com.back.boundedContext.market.app.MarketFacade;
