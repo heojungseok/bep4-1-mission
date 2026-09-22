@@ -15,6 +15,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "CASH_WALLET")
 @NoArgsConstructor
+@Getter
 public class Wallet extends BaseManualIdAndTime {
 
     @ManyToOne(fetch = LAZY)

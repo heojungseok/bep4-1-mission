@@ -27,6 +27,7 @@ public class Order extends BaseIdAndTime {
     private MarketMember buyer;
     private LocalDateTime requestPaymentDate;
     private LocalDateTime paymentDate;
+    private LocalDateTime cancelDate;
     private long price;
     private long salePrice;
 
@@ -63,6 +64,8 @@ public class Order extends BaseIdAndTime {
     public void requestPayment(long pgPaymentAmount) {
         requestPaymentDate = LocalDateTime.now();
 
+        OrderDto orderDto = new OrderDto(this);
+
         publishEvent(
                 new MarketOrderPaymentRequestedEvent(
                         new OrderDto(this),
@@ -78,4 +81,13 @@ public class Order extends BaseIdAndTime {
     public void cancelRequestPayment() {
         requestPaymentDate = null;
     }
+
+    public boolean isCanceled() {
+        return cancelDate != null;
+    }
+
+    public boolean isPaymentInProgress() {
+        return requestPaymentDate != null && paymentDate == null && cancelDate == null;
+    }
+
 }
