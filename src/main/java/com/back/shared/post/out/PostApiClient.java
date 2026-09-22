@@ -14,7 +14,7 @@ public class PostApiClient {
 
     public PostApiClient(@Value("${custom.global.internalBackUrl}") String internalBackUrl) {
         this.restClient = RestClient.builder()
-                .baseUrl(internalBackUrl + "/api/vi/post")
+                .baseUrl(internalBackUrl + "/api/v1/post")
                 .build();
     }
 
