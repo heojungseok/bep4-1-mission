@@ -13,7 +13,7 @@ public class CashApiClient {
 
     public CashApiClient(@Value("${custom.global.internalBackUrl}") String internalBackUrl) {
         this.restClient = RestClient.builder()
-                .baseUrl(internalBackUrl + "/api/v1/member")
+                .baseUrl(internalBackUrl + "/api/v1/cash")
                 .build();
     }
 
