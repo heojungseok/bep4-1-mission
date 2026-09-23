@@ -28,9 +28,7 @@ public class PostFacade {
 
     @Transactional
     public RsData<Post> write(PostMember author, String title, String content) {
-
         return postWriteUseCase.write(author, title, content);
-
     }
 
     @Transactional(readOnly = true)
